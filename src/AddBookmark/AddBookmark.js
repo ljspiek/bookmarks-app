@@ -1,4 +1,5 @@
 import React, { Component } from  'react';
+import {withRouter} from 'react-router-dom';
 import config from '../config'
 import './AddBookmark.css';
 
@@ -49,6 +50,7 @@ class AddBookmark extends Component {
         url.value = ''
         description.value = ''
         rating.value = ''
+        this.props.history.push('/')
         this.props.onAddBookmark(data)
       })
       .catch(error => {
@@ -80,7 +82,7 @@ class AddBookmark extends Component {
               name='title'
               id='title'
               placeholder='Great website!'
-              required
+              
             />
           </div>
           <div>
@@ -94,7 +96,7 @@ class AddBookmark extends Component {
               name='url'
               id='url'
               placeholder='https://www.great-website.com/'
-              required
+              
             />
           </div>
           <div>
@@ -137,4 +139,4 @@ class AddBookmark extends Component {
   }
 }
 
-export default AddBookmark;
+export default withRouter(AddBookmark);
